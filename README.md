@@ -2,8 +2,6 @@
 
 A free community maintenance tracker for the FlashForge Creator 5, created by Rose & Paw Applications.
 
-![Rose & Paw Applications](assets/rose-and-paw-applications-logo.png)
-
 ## Excel app
 
 The Excel version is available now:
@@ -51,7 +49,6 @@ Please use the repository's Issues section to submit feedback.
 ## Project structure
 
 - `excel/` contains the current Excel maintenance app.
-- `assets/` contains Rose & Paw Applications branding assets.
 - A web app will be added as development progresses.
 
 ## Development approach
