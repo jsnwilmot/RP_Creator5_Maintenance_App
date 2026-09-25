@@ -38,29 +38,37 @@ The printer-hour value is intended to be a continuous lifetime total and should 
 
 A browser-based version is planned and will also be provided free of charge.
 
-The planned web app will keep maintenance data in local browser storage on the user's device. No cloud database or user account is planned.
+The web app is intended to keep maintenance data locally in the user's browser storage. No cloud database or user account is planned.
+
+Development work for the browser version is kept on the `web-dev` branch until it is ready for a stable release.
+
+## Repository structure
+
+```text
+RP_Creator5_Maintenance_App/
+├── README.md
+├── excel/
+│   └── Rose_and_Paw_Creator5_Maintenance_App.xlsx
+└── web/                         # developed on web-dev until stable
+    ├── README.md
+    ├── public/
+    ├── src/
+    └── docs/
+```
+
+## Branches
+
+- `main`: stable public releases
+- `excel-dev`: working branch for Excel maintenance-app changes
+- `web-dev`: working branch for the browser-based application
+
+Stable changes from either development branch can be reviewed and merged into `main`.
 
 ## Feedback and suggestions
 
 Suggestions, corrections, feature requests, and maintenance items that should be added are welcome.
 
 Please use the repository's Issues section to submit feedback.
-
-## Project structure
-
-- `excel/` contains the current Excel maintenance app.
-- A web app will be added as development progresses.
-
-## Development approach
-
-`main` will contain stable releases.
-
-Development can use separate working branches, for example:
-
-- `excel-dev` for Excel changes
-- `web-dev` for the web application
-
-Stable changes can then be merged back into `main`.
 
 ## Disclaimer
 
