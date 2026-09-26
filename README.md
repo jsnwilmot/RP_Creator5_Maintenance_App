@@ -22,7 +22,7 @@ The workbook provides an app-style interface for tracking routine maintenance wi
 - Creator 5-specific 500-hour positioning-ball and needle-roller service tracking
 - Rose & Paw Applications branding
 
-## Getting started
+## Getting started with the Excel app
 
 1. Download the Excel workbook.
 2. Open it in Microsoft Excel.
@@ -36,33 +36,60 @@ The printer-hour value is intended to be a continuous lifetime total and should 
 
 ## Web app
 
-A browser-based version is planned and will also be provided free of charge.
+The browser-based version is in active development on the `web-dev` branch.
 
-The web app is intended to keep maintenance data locally in the user's browser storage. No cloud database or user account is planned.
+The approved Version 1 architecture is a responsive React + TypeScript + Vite application. Browser-local IndexedDB is the authoritative working data store. No user account, backend, cloud database, or server-side maintenance-data storage is required.
 
-Development work for the browser version is kept on the `web-dev` branch until it is ready for a stable release.
+Version 1 is designed to support multiple independently tracked Creator 5 printers, each with its own lifetime hours, maintenance state, checklist state, due calculations, notes, and service history.
+
+Manual backup export and validated full-replacement restore are required. Optional automatic local-file backup may be offered where supported by the browser and explicitly authorized by the user.
+
+The approved project documentation under `docs/` is the source of truth for web-app implementation.
 
 ## Repository structure
 
 ```text
 RP_Creator5_Maintenance_App/
+├── .gitignore
+├── AGENTS.md                    # Codex repository instructions
 ├── README.md
+├── docs/                        # approved web-app project documentation
+│   ├── 00_Project_Overview/
+│   ├── 01_Requirements/
+│   ├── 02_Architecture/
+│   ├── 03_Data_Model/
+│   ├── 04_UI_UX/
+│   ├── 05_Workflows/
+│   ├── 06_Security/
+│   ├── 07_Development/
+│   ├── 08_Testing/
+│   ├── 09_Deployment/
+│   ├── 10_Documentation/
+│   └── 11_Codex_Prompts/
 ├── excel/
 │   └── Rose_and_Paw_Creator5_Maintenance_App.xlsx
-└── web/                         # developed on web-dev until stable
+└── web/                         # browser application implementation
     ├── README.md
     ├── public/
     ├── src/
     └── docs/
 ```
 
+## Development controls
+
+Codex must read `AGENTS.md` and the approved documents under `docs/` before implementation.
+
+Web development is performed one Architect-approved phase at a time. The phase plan is maintained in:
+
+`docs/11_Codex_Prompts/PHASED_CODEX_PROMPTS.md`
+
+Stable web work is merged to `main` only after review and approval.
+
 ## Branches
 
 - `main`: stable public releases
 - `excel-dev`: working branch for Excel maintenance-app changes
-- `web-dev`: working branch for the browser-based application
-
-Stable changes from either development branch can be reviewed and merged into `main`.
+- `web-dev`: active development branch for the browser-based application
 
 ## Feedback and suggestions
 

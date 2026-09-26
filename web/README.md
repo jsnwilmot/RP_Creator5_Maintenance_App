@@ -2,33 +2,73 @@
 
 This folder contains the browser-based version of the Rose & Paw Creator 5 Maintenance App.
 
-## Goals
+The application is currently being implemented on the `web-dev` branch. Approved requirements and architecture are maintained under the repository-root `docs/` folder.
 
-- Provide the same core maintenance workflow as the Excel app.
-- Keep the interface simple and app-like.
-- Store user maintenance data locally on the user's device.
-- Require no account and no cloud database.
-- Make the app usable as a free community tool.
+## Approved Version 1 architecture
 
-## Planned core features
+- React + TypeScript
+- Vite build tooling
+- Responsive web application for desktop, tablet, and mobile
+- Browser-local IndexedDB as the authoritative working data store
+- No user account
+- No backend or cloud database
+- No server-side maintenance-data storage
+- Manual JSON backup export
+- Validated full-replacement restore
+- Optional automatic local-file backup where supported and explicitly authorized by the user
 
-- Printer lifetime-hour tracking
-- Maintenance status dashboard
-- DUE, SOON, OK, and AS NEEDED states
-- Routine maintenance schedules
-- Reusable maintenance checklists
-- Service history
-- Automatic maintenance-cycle resets
-- Local data persistence
-- Backup/export and restore/import
-- Built-in instructions and maintenance references
+## Version 1 scope
 
-## Privacy
+- Multiple independently tracked Creator 5 printers
+- Individually nameable printer profiles
+- Lifetime printer-hour tracking
+- DUE, SOON, OK, and AS NEEDED maintenance states
+- Hour-based, date-based, after-print, and event/as-needed maintenance
+- Built-in Creator 5 maintenance template
+- Maintenance checklists
+- Recurring maintenance-cycle resets without deleting history
+- Permanent printer-specific service history
+- Backup export and restore
+- Responsive and accessible user interface
 
-The planned application will store user-entered maintenance data locally in browser storage. No cloud storage, user account, analytics database, or external maintenance-data service is planned.
+## Architecture rules
+
+- Keep maintenance records local to the user's browser.
+- Keep printer profiles, templates, printer maintenance state, Service Records, settings, and backup schemas separated.
+- Use stable unique IDs for persisted entities.
+- Keep maintenance calculations deterministic and testable outside React components.
+- Preserve historical Service Records when recurring maintenance starts a new cycle.
+- Validate backup files before altering live data.
+- Do not introduce authentication, cloud synchronization, telemetry receiving maintenance records, external APIs, or other integrations unless explicitly approved.
+
+## Project documentation
+
+Before implementation, read the repository-root `AGENTS.md` and the relevant approved documents under `docs/`.
+
+Primary development instructions:
+
+- `docs/07_Development/CODEX_INSTRUCTIONS.md`
+- `docs/08_Testing/TEST_PLAN.md`
+- `docs/11_Codex_Prompts/PHASED_CODEX_PROMPTS.md`
+
+Architecture and requirements:
+
+- `docs/01_Requirements/`
+- `docs/02_Architecture/`
+- `docs/03_Data_Model/`
+- `docs/04_UI_UX/`
+- `docs/05_Workflows/`
+- `docs/06_Security/`
+- `docs/10_Documentation/CREATOR5_MAINTENANCE_TEMPLATE.md`
 
 ## Development
 
 Active browser development happens on the `web-dev` branch.
 
-Stable releases will be merged into `main` when ready.
+Work is completed one Architect-approved phase at a time. Do not begin a later phase until the current phase has been reviewed and approved.
+
+Stable releases are merged into `main` only after approval.
+
+## Privacy
+
+Maintenance data is intended to remain on the user's device. The application does not require a Rose & Paw account or cloud database and must not transmit user maintenance records to Rose & Paw or another external service.

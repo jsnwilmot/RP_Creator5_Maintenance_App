@@ -4,7 +4,7 @@
 
 Rose & Paw Creator 5 Maintenance App
 
-This repository is governed by the approved project documentation stored in the project documentation folders.
+This repository is governed by the approved project documentation stored under `docs/`.
 
 This file does not replace those documents. Codex must read and follow them before implementing changes.
 
@@ -12,28 +12,28 @@ This file does not replace those documents. Codex must read and follow them befo
 
 Before modifying application code, Codex must read:
 
-1. `00_Project_Overview/README.md`
-2. `00_Project_Overview/PROJECT_SCOPE.md`
-3. `00_Project_Overview/NEXT_STEPS.md`
-4. `01_Requirements/CLIENT_REQUIREMENTS.md`
-5. `01_Requirements/ACCEPTANCE_CRITERIA.md`
-6. `02_Architecture/APP_BLUEPRINT.md`
-7. `02_Architecture/ARCHITECT_INSTRUCTIONS.md`
-8. `07_Development/CODEX_INSTRUCTIONS.md`
-9. `08_Testing/TEST_PLAN.md`
-10. `11_Codex_Prompts/PHASED_CODEX_PROMPTS.md`
+1. `docs/00_Project_Overview/README.md`
+2. `docs/00_Project_Overview/PROJECT_SCOPE.md`
+3. `docs/00_Project_Overview/NEXT_STEPS.md`
+4. `docs/01_Requirements/CLIENT_REQUIREMENTS.md`
+5. `docs/01_Requirements/ACCEPTANCE_CRITERIA.md`
+6. `docs/02_Architecture/APP_BLUEPRINT.md`
+7. `docs/02_Architecture/ARCHITECT_INSTRUCTIONS.md`
+8. `docs/07_Development/CODEX_INSTRUCTIONS.md`
+9. `docs/08_Testing/TEST_PLAN.md`
+10. `docs/11_Codex_Prompts/PHASED_CODEX_PROMPTS.md`
 
 Codex must also read every project document relevant to the active phase before making changes.
 
 Relevant documents include:
 
-- `03_Data_Model/DATA_MODEL.md`
-- `04_UI_UX/SCREEN_MAP.md`
-- `04_UI_UX/BRAND_GUIDE.md`
-- `05_Workflows/WORKFLOW_MAP.md`
-- `06_Security/SECURITY_MODEL.md`
-- `09_Deployment/DEPLOYMENT_NOTES.md`
-- `10_Documentation/CREATOR5_MAINTENANCE_TEMPLATE.md`
+- `docs/03_Data_Model/DATA_MODEL.md`
+- `docs/04_UI_UX/SCREEN_MAP.md`
+- `docs/04_UI_UX/BRAND_GUIDE.md`
+- `docs/05_Workflows/WORKFLOW_MAP.md`
+- `docs/06_Security/SECURITY_MODEL.md`
+- `docs/09_Deployment/DEPLOYMENT_NOTES.md`
+- `docs/10_Documentation/CREATOR5_MAINTENANCE_TEMPLATE.md`
 
 ## Codex role
 
@@ -44,8 +44,8 @@ The GPT Architect controls architecture, requirement interpretation, scope chang
 Codex must:
 
 - implement only the phase or remediation task explicitly authorized by the Architect/user;
-- follow `07_Development/CODEX_INSTRUCTIONS.md`;
-- follow the requirements for the active phase in `11_Codex_Prompts/PHASED_CODEX_PROMPTS.md`;
+- follow `docs/07_Development/CODEX_INSTRUCTIONS.md`;
+- follow the requirements for the active phase in `docs/11_Codex_Prompts/PHASED_CODEX_PROMPTS.md`;
 - use the approved project documents as the source of truth;
 - inspect the existing implementation before changing it;
 - preserve approved architecture and data-integrity rules;
@@ -79,7 +79,7 @@ Do not begin the next phase because the current phase appears complete.
 
 Wait for Architect/user approval before proceeding to another phase.
 
-The active task provided by the Architect/user controls which phase or remediation work is authorized. `PHASED_CODEX_PROMPTS.md` is not authorization to execute every phase automatically.
+The active task provided by the Architect/user controls which phase or remediation work is authorized. `docs/11_Codex_Prompts/PHASED_CODEX_PROMPTS.md` is not authorization to execute every phase automatically.
 
 ## Repository rules
 
@@ -136,7 +136,7 @@ If a migration, restore, or write operation could cause uncontrolled data loss, 
 
 ## Testing
 
-Follow `08_Testing/TEST_PLAN.md` and the active phase requirements.
+Follow `docs/08_Testing/TEST_PLAN.md` and the active phase requirements.
 
 For changed behavior, run all applicable:
 
