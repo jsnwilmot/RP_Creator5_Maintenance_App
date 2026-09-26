@@ -33,6 +33,14 @@ The application does not require a backend, cloud database, user account, authen
 - Client-side routing is permitted. React Router is the preferred routing library if route-based navigation is implemented.
 - Use native semantic HTML first. Avoid a large UI framework unless separately approved.
 
+### Deployment base
+
+- Approved public application URL: `https://apps.rosenpaw.ca/creator5-maintenance/`.
+- Approved production base path: `/creator5-maintenance/`.
+- GitHub remains the source repository; the Rose & Paw Apps site is the public user-facing location.
+- Vite production configuration must support deployment from the approved subpath rather than assuming the application is hosted at `/`.
+- A future change to the hostname or base path requires Architect review because it may affect build, routing, assets, and deployment configuration.
+
 ### Styling
 - CSS custom properties for Rose & Paw design tokens.
 - Plain CSS or CSS Modules.

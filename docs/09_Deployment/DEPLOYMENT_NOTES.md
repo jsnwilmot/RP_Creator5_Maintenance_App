@@ -24,7 +24,15 @@ Production must be served over HTTPS.
 | Preview | Review before stable release | Branch/deployment preview when configured |
 | Production | Public stable release | Static HTTPS host |
 
-Cloudflare Pages is the preferred static host because it fits the existing Rose & Paw web-hosting model, but the exact production hostname is intentionally a release-time decision and does not block development.
+Cloudflare Pages is the preferred static host because it fits the existing Rose & Paw web-hosting model. The approved public application URL is `https://apps.rosenpaw.ca/creator5-maintenance/`. The final hosting/deployment implementation remains a release-time decision and does not block development.
+
+## Approved public URL
+
+- Public application URL: `https://apps.rosenpaw.ca/creator5-maintenance/`
+- Production base path: `/creator5-maintenance/`
+- Public distribution model: free Rose & Paw Applications web app.
+- GitHub remains the source-code, issue-tracking, development-history, and release-history repository.
+- Phase 1 must configure Vite production builds for this base path so generated asset URLs work below the hostname root.
 
 ## Source control
 
@@ -66,7 +74,9 @@ Version 1 should require no secret runtime configuration.
 Public configuration may include:
 - application version/build identifier;
 - repository/help URLs;
-- static deployment base path if required by the host.
+- static deployment base path.
+
+For the approved production URL, the Vite production base path is `/creator5-maintenance/`.
 
 ## Deployment steps
 
@@ -129,7 +139,6 @@ Use the Production smoke tests in `08_Testing/TEST_PLAN.md`.
 ## Open release-time decisions
 
 Non-blocking until public release:
-- exact production hostname;
-- whether Cloudflare Pages or another approved static host is used;
-- whether a custom domain is attached;
+- whether Cloudflare Pages or another approved static-host implementation is used to serve the approved URL;
+- the exact deployment/rewrite configuration used to publish the app beneath `/creator5-maintenance/`;
 - whether PWA installation/offline asset caching is included in the first public web release.

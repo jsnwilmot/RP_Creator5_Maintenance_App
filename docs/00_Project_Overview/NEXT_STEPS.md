@@ -43,4 +43,4 @@ Before application code is written, confirm the Phase 1 prompt in `11_Codex_Prom
 
 ## First implementation phase
 
-Phase 1 should establish the web stack, folder structure, lint/test/build tooling, application shell, Rose & Paw theme tokens, and CI-quality commands without implementing full business behavior.
+Phase 1 should establish the web stack, folder structure, lint/test/build tooling, application shell, Rose & Paw theme tokens, and CI-quality commands without implementing full business behavior. It must also configure the production Vite base path for the approved public URL `https://apps.rosenpaw.ca/creator5-maintenance/` (`/creator5-maintenance/`).

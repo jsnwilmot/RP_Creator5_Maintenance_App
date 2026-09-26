@@ -16,7 +16,7 @@
     "This manifest represents a manually corrected Architect baseline based on a Project Builder export.",
     "Power Platform-specific generated content was removed as not applicable.",
     "A supplemental Creator 5 maintenance-template document was added.",
-    "Final production hostname remains a non-blocking release-time decision."
+    "Approved public application URL is https://apps.rosenpaw.ca/creator5-maintenance/ with production base path /creator5-maintenance/; hosting implementation remains a release-time decision."
   ],
   "rootFolder": "rose-paw-creator-5-maintenance-app",
   "folderStructure": [

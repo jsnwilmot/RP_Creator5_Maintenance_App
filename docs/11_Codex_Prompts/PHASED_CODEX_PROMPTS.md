@@ -16,6 +16,7 @@ Create the production-ready React + TypeScript + Vite foundation inside `web/` w
 - Enable strict TypeScript.
 - Establish source folders for app, domain, data, services, UI, and tests.
 - Add Rose & Paw application shell and basic responsive navigation.
+- Configure Vite production builds for the approved public URL `https://apps.rosenpaw.ca/creator5-maintenance/` using production base path `/creator5-maintenance/`.
 - Add CSS custom-property design tokens with accessible defaults.
 - Configure lint, type-check, unit tests, component tests, and production build scripts.
 - Configure Vitest + React Testing Library.
