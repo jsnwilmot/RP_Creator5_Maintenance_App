@@ -1,0 +1,533 @@
+# Workflow Map
+
+**Project:** Rose & Paw Creator 5 Maintenance App  
+**Client:** Jason Wilmot  
+**Business or department:** Rose & Paw Applications  
+**Project type:** Web application  
+**Target platform:** Responsive web application for desktop, tablet, and mobile browsers. Primary desktop support should include current Chromium-based browsers such as Chrome and Microsoft Edge. The application should remain usable on modern mobile browsers where practical.  
+**Status:** Architect Reviewed Baseline
+
+## Workflow name
+
+- Add Printer
+- Switch Printer
+- Update Printer Hours
+- Complete Routine Maintenance
+- Complete After-Print Maintenance
+- Record As-Needed Maintenance
+- View Maintenance Status
+- View Service History
+- Export Backup
+- Configure Automatic Local Backup
+- Import and Restore Backup
+- Delete or Archive Printer
+- Application Startup
+- Application Update / Schema Migration
+
+## Trigger
+
+- Add Printer
+- Trigger: User selects Add Printer.
+- Switch Printer
+- Trigger: User selects a different printer from the printer selector.
+- Update Printer Hours
+- Trigger: User submits a new lifetime printer-hour value.
+- Complete Routine Maintenance
+- Trigger: User selects a maintenance task and chooses to complete the service.
+- Complete After-Print Maintenance
+- Trigger: User marks an after-print checklist item as completed.
+- Record As-Needed Maintenance
+- Trigger: User chooses to record an unscheduled maintenance, repair, or replacement event.
+- View Maintenance Status
+- Trigger: Dashboard or Maintenance Center is opened, printer hours change, the selected printer changes, the date changes, or maintenance is completed.
+- View Service History
+- Trigger: User opens Service History.
+- Export Backup
+- Trigger: User selects Export Backup.
+- Configure Automatic Local Backup
+- Trigger: User enables automatic local backup and selects a browser-authorized backup destination.
+- Import and Restore Backup
+- Trigger: User selects Import Backup and chooses a backup file.
+- Delete or Archive Printer
+- Trigger: User selects Archive Printer or Delete Printer.
+- Application Startup
+- Trigger: User opens or reloads the application.
+- Application Update / Schema Migration
+- Trigger: Application detects stored data using an older supported schema version.
+
+## Steps
+
+- Add Printer
+- 1. User selects Add Printer.
+- 2. Application opens the printer setup form.
+- 3. User enters a printer display name.
+- 4. User selects manufacturer and model/template.
+- 5. Creator 5 is available as the built-in Version 1 template.
+- 6. User enters current lifetime printer hours.
+- 7. Application validates required fields and printer hours.
+- 8. Application creates a unique printer ID.
+- 9. Application creates independent maintenance state records for the printer.
+- 10. Application calculates initial maintenance status.
+- 11. Printer is saved locally.
+- 12. New printer becomes available in the printer selector.
+- Switch Printer
+- 1. User opens the printer selector.
+- 2. User selects a printer.
+- 3. Application changes selectedPrinterId.
+- 4. Dashboard loads that printer's hours and maintenance state.
+- 5. Maintenance Center, checklist, and service history are scoped to the selected printer.
+- Update Printer Hours
+- 1. User enters current lifetime printer hours.
+- 2. Application validates that the value is non-negative.
+- 3. If the value is lower than the previous value, display a warning and require confirmation.
+- 4. Save the accepted value.
+- 5. Recalculate hour-based and combined maintenance intervals.
+- 6. Recalculate DUE, SOON, OK, and AS NEEDED statuses.
+- 7. Refresh dashboard and Maintenance Center.
+- 8. Mark application data as changed since last backup.
+- Complete Routine Maintenance
+- 1. User opens the maintenance task.
+- 2. Application displays the current-cycle checklist.
+- 3. User completes required checklist items.
+- 4. User enters or confirms service date.
+- 5. User enters or confirms current printer hours.
+- 6. User may enter work performed, notes, parts, supplies, and cost.
+- 7. Application validates required information.
+- 8. User confirms completion.
+- 9. Application creates a permanent Service Record.
+- 10. Application updates last-completed date and printer hours.
+- 11. Application closes the current maintenance cycle.
+- 12. Application creates the next maintenance cycle.
+- 13. Applicable checklist state resets for the new cycle.
+- 14. Next due date and/or next due hours are calculated.
+- 15. Maintenance statuses are recalculated.
+- 16. Application is marked as changed since last backup.
+- Complete After-Print Maintenance
+- 1. User opens the after-print checklist.
+- 2. User records completion using the current date and/or current printer hours.
+- 3. Application marks the item completed for the current cycle.
+- 4. Completion remains visible for that cycle.
+- 5. When a new applicable print cycle is detected through updated printer hours or other configured event state, the item becomes available again.
+- 6. Historical service records are not deleted.
+- Record As-Needed Maintenance
+- 1. User selects Record Maintenance.
+- 2. User selects or enters the maintenance type.
+- 3. User records service date and printer hours.
+- 4. User enters work performed.
+- 5. User may add notes, parts, supplies, and cost.
+- 6. Application validates required fields.
+- 7. Application saves a permanent Service Record.
+- 8. If linked to a configured maintenance task, applicable maintenance state is updated.
+- 9. Otherwise, the event remains historical only.
+- View Maintenance Status
+- 1. Application loads the selected printer.
+- 2. Retrieve current printer hours and maintenance state.
+- 3. Evaluate each active maintenance definition.
+- 4. Determine next due hours/date where applicable.
+- 5. Determine current status.
+- 6. Display status using text and accessible colour.
+- 7. Display due count, soon count, next major service, and checklist progress.
+- View Service History
+- 1. User opens Service History.
+- 2. Application retrieves service records for the selected printer.
+- 3. Records are sorted by service date, newest first by default.
+- 4. User may filter by maintenance type or date where implemented.
+- 5. Selecting a record displays full service details.
+- Export Backup
+- 1. User selects Export Backup.
+- 2. Application reads all required local data.
+- 3. Application packages data into the supported backup schema.
+- 4. Include schema version and application version.
+- 5. Validate the backup structure internally.
+- 6. Generate a local backup file.
+- 7. Browser prompts the user to save the file.
+- 8. Record successful backup time and version.
+- 9. Clear the changes-since-last-backup indicator.
+- Configure Automatic Local Backup
+- 1. User enables automatic backup.
+- 2. Application checks browser support.
+- 3. User chooses a permitted file or destination.
+- 4. Browser requests user authorization.
+- 5. Application stores the browser-supported file reference where permitted.
+- 6. Application writes an initial backup.
+- 7. Significant successfully saved data changes trigger a debounced backup update where permission remains valid. Page-exit backup may be attempted only as best effort and is not a reliability requirement.
+- 8. If permission is lost, automatic backup is disabled or marked as requiring permission.
+- 9. Manual Export Backup remains available.
+- Import and Restore Backup
+- 1. User selects Import Backup.
+- 2. User selects a backup file.
+- 3. Application reads the file without changing current data.
+- 4. Validate file format.
+- 5. Validate backup schema version.
+- 6. Validate required entities and fields.
+- 7. Reject malformed or unsupported backups.
+- 8. Display a restore summary.
+- 9. Explain that Version 1 restore will replace the complete local application data set. Merge restore is not supported.
+- 10. User confirms restore.
+- 11. Preserve current data until validation and confirmation are complete.
+- 12. Restore validated backup data.
+- 13. Perform required supported schema migration.
+- 14. Recalculate maintenance states.
+- 15. Display restore success or failure.
+- Delete or Archive Printer
+- 1. User selects printer management.
+- 2. User chooses Archive or Delete.
+- 3. Application explains the difference.
+- 4. Archive preserves printer and service history but hides it from normal active-printer views.
+- 5. Permanent Delete displays a destructive-action warning.
+- 6. User confirms deletion.
+- 7. Application removes the printer and associated data according to approved deletion rules.
+- 8. If the deleted printer was selected, another available printer is selected or the empty-state screen is shown.
+- Application Startup
+- 1. Open local IndexedDB database.
+- 2. Read schema metadata.
+- 3. Run supported migrations if required.
+- 4. Load application settings.
+- 5. Load configured printers.
+- 6. Restore the previously selected printer where it still exists.
+- 7. Load the selected printer's maintenance state.
+- 8. Recalculate date-dependent maintenance status.
+- 9. Display the application dashboard.
+- Application Update / Schema Migration
+- 1. Read current stored schema version.
+- 2. Compare it with the application's required schema version.
+- 3. If versions match, continue normally.
+- 4. If an older supported schema exists, run migration steps in order.
+- 5. Preserve printer IDs, printer profiles, maintenance state, and service history.
+- 6. Update schema metadata after successful migration.
+- 7. If migration fails, do not silently discard data.
+- 8. Present a recoverable error and preserve the existing local database where possible.
+
+## Inputs
+
+- Add Printer
+- - Printer display name
+- - Manufacturer
+- - Model
+- - Maintenance template
+- - Current lifetime printer hours
+- - Optional serial number
+- - Optional notes
+- Switch Printer
+- - Printer ID selected by user
+- Update Printer Hours
+- - Printer ID
+- - Previous lifetime hours
+- - New lifetime hours
+- - User confirmation if value decreases
+- Complete Routine Maintenance
+- - Printer ID
+- - Maintenance task ID
+- - Checklist state
+- - Service date
+- - Printer hours
+- - Work performed
+- - Optional notes
+- - Optional parts and supplies
+- - Optional cost
+- Complete After-Print Maintenance
+- - Printer ID
+- - Checklist item ID
+- - Completion date
+- - Current printer hours where applicable
+- - Optional notes
+- Record As-Needed Maintenance
+- - Printer ID
+- - Maintenance type
+- - Service date
+- - Printer hours
+- - Work performed
+- - Optional notes
+- - Optional parts and supplies
+- - Optional cost
+- View Maintenance Status
+- - Selected printer ID
+- - Current printer hours
+- - Current date
+- - Maintenance definitions
+- - Last-completed maintenance state
+- View Service History
+- - Selected printer ID
+- - Optional filters
+- Export Backup
+- - All locally stored application data
+- - Application version
+- - Schema version
+- Configure Automatic Local Backup
+- - User backup preference
+- - Browser capability
+- - User-authorized file or destination
+- Import and Restore Backup
+- - User-selected backup file
+- - Existing local data
+- - Current schema version
+- - Supported migration versions
+- Delete or Archive Printer
+- - Printer ID
+- - Archive or Delete action
+- - User confirmation
+- Application Startup
+- - IndexedDB contents
+- - Application settings
+- - Schema metadata
+- Application Update / Schema Migration
+- - Existing schema version
+- - Target schema version
+- - Existing locally stored application data
+
+## Outputs
+
+- Add Printer
+- - New printer profile
+- - New printer maintenance state
+- - Initial maintenance status
+- - Updated printer selector
+- Switch Printer
+- - Updated selected printer
+- - Updated dashboard
+- - Updated Maintenance Center
+- - Updated checklist context
+- - Updated service history context
+- Update Printer Hours
+- - Updated lifetime hours
+- - Recalculated maintenance statuses
+- - Updated next-due values
+- - Updated dashboard
+- - Backup changes-pending state
+- Complete Routine Maintenance
+- - Permanent Service Record
+- - Updated last-completed values
+- - Closed maintenance cycle
+- - New maintenance cycle
+- - Reset current-cycle checklist
+- - Recalculated next due values
+- - Updated maintenance status
+- Complete After-Print Maintenance
+- - Updated current-cycle checklist state
+- - Completion timestamp and/or printer-hour value
+- Record As-Needed Maintenance
+- - Permanent Service Record
+- - Optional maintenance-state update
+- View Maintenance Status
+- - Due maintenance list
+- - Soon maintenance list
+- - OK maintenance list
+- - As-needed items
+- - Next major maintenance
+- - Checklist progress
+- View Service History
+- - Printer-specific historical maintenance records
+- Export Backup
+- - Versioned local backup file
+- - Updated last-successful-backup metadata
+- Configure Automatic Local Backup
+- - Authorized backup configuration
+- - Initial or updated local backup
+- - Backup status
+- Import and Restore Backup
+- - Validated restored application data
+- - Reconstructed printer profiles
+- - Reconstructed maintenance states
+- - Restored service history
+- - Restore result
+- Delete or Archive Printer
+- - Archived printer or permanently removed printer and applicable related records
+- - Updated printer list
+- Application Startup
+- - Initialized application
+- - Loaded printer data
+- - Current maintenance status
+- Application Update / Schema Migration
+- - Migrated local database
+- - Updated schema metadata
+- - Preserved supported historical data
+
+## Roles involved
+
+- Printer Owner / User
+- The Printer Owner / User performs all normal application workflows.
+- There are no separate administrator, approver, operator, or privileged application roles in Version 1.
+- Rose & Paw Applications maintains the application source code, built-in Creator 5 maintenance template, releases, documentation, and application schema, but does not participate in individual users' local maintenance workflows and does not have access to user data.
+
+## Decision points
+
+- Add Printer
+- - Is the printer name provided?
+- Yes: continue.
+- No: require a name.
+- - Is the selected model supported by a built-in template?
+- Creator 5: apply the Creator 5 template.
+- Other model in Version 1: do not claim a manufacturer-specific predefined schedule. Future custom-template support may handle this.
+- Update Printer Hours
+- - Is the new value valid and non-negative?
+- Yes: continue.
+- No: reject the value.
+- - Is the new value lower than the stored lifetime hours?
+- No: save normally.
+- Yes: warn the user and require explicit confirmation before accepting.
+- Complete Routine Maintenance
+- - Are required checklist items complete?
+- Yes: allow normal service completion.
+- No: warn the user, list the incomplete required items, and require explicit confirmation to Complete Anyway. If confirmed, record the override and skipped required items in the Service Record.
+- - Is the maintenance interval hour-based, date-based, combined, after-print, or as-needed?
+- Apply the appropriate next-cycle calculation.
+- Automatic Backup
+- - Does the browser support persistent authorized file access?
+- Yes: offer automatic local backup.
+- No: use manual Export Backup.
+- - Does the application still have permission to the selected destination?
+- Yes: perform backup.
+- No: mark backup as requiring permission and retain manual export.
+- Import Backup
+- - Is the selected file structurally valid?
+- Yes: continue.
+- No: reject without changing existing data.
+- - Is the schema version supported?
+- Current version: restore directly.
+- Older supported version: migrate during restore.
+- Unsupported version: reject and explain the incompatibility.
+- - Has the user confirmed the restore?
+- Yes: restore.
+- No: leave existing data unchanged.
+- Delete Printer
+- - Did the user choose Archive?
+- Preserve the printer and service history.
+- - Did the user choose Permanent Delete?
+- Require explicit destructive-action confirmation before deletion.
+- Schema Migration
+- - Is the existing schema current?
+- Yes: no migration required.
+- No, but supported: migrate.
+- Unsupported or failed: preserve existing data and show a recoverable error.
+
+## Notifications
+
+- Version 1 does not require email, SMS, push notifications, cloud notifications, or external notification services.
+- All notifications are in-app only.
+- Required in-app notifications include:
+- - Maintenance item has reached DUE status.
+- - Maintenance item is approaching and has reached SOON status.
+- - Printer-hour value entered is lower than the currently stored value.
+- - Maintenance service completed successfully.
+- - Backup completed successfully.
+- - Local data has changed since the last successful backup.
+- - Automatic backup requires renewed browser permission.
+- - Automatic backup failed.
+- - Backup import validation failed.
+- - Backup import completed successfully.
+- - Backup schema is unsupported.
+- - Printer deletion requires confirmation.
+- - Data restore may replace existing local records.
+- - Local database migration failed or requires user attention.
+- Notifications should be concise, accessible, and should not rely on colour alone.
+
+## Exceptions
+
+- Local database unavailable
+- - Display an error explaining that local application storage could not be opened.
+- - Do not pretend data was saved.
+- - Provide retry guidance where practical.
+- - Prevent operations that would otherwise appear to persist successfully.
+- Printer-hour validation failure
+- - Reject blank, invalid, negative, NaN, or unsupported values.
+- - Preserve the previous valid printer-hour value.
+- - Display a clear validation message.
+- Decreasing printer hours
+- - Do not accept silently.
+- - Warn the user that lifetime printer hours normally increase.
+- - Require explicit confirmation before saving a lower value.
+- Maintenance save failure
+- - Do not reset the maintenance cycle unless the Service Record and maintenance-state changes are saved successfully.
+- - Preserve the user's entered information where practical so it can be retried.
+- Backup export failure
+- - Keep local IndexedDB data unchanged.
+- - Display backup failure.
+- - Keep changes-since-last-backup status active.
+- - Allow the user to retry.
+- Automatic backup unsupported
+- - Do not treat this as an application failure.
+- - Disable or hide unsupported automatic functionality.
+- - Keep manual Export Backup available.
+- Automatic backup permission lost
+- - Stop automatic writes.
+- - Mark backup status as PERMISSION_REQUIRED.
+- - Ask the user to reauthorize when they next use backup settings.
+- - Do not lose browser-local application data.
+- Invalid import file
+- - Reject before changing current local data.
+- - Explain that the file is not a valid Creator 5 Maintenance App backup.
+- Unsupported backup version
+- - Reject the restore unless a supported migration path exists.
+- - Leave current application data unchanged.
+- Import failure during restore
+- - Avoid partially replacing current data.
+- - Validate before destructive changes.
+- - Where practical, use a staged or transactional restore so failure leaves the previous local database intact.
+- Schema migration failure
+- - Do not silently delete or recreate the database.
+- - Preserve existing data.
+- - Display an error and provide backup/recovery guidance.
+- Printer deletion
+- - Require explicit confirmation.
+- - Do not allow an accidental single click to permanently delete a printer and its associated history.
+- Corrupted maintenance state
+- - Reconstruct calculable status from maintenance definitions and permanent Service Records where practical.
+- - Do not fabricate historical maintenance completion.
+- Application refresh or unexpected closure
+- - Previously committed data remains in IndexedDB.
+- - Unsaved form edits may be lost.
+- - Important actions should save promptly rather than relying only on application exit.
+- Browser cache/site-data removal
+- - The application cannot prevent the user or browser from clearing local site data.
+- - When no local data remains, present the first-run state.
+- - Provide Import Backup so a user can restore from a previously exported backup.
+- No internet connection
+- - Previously loaded local application functionality and locally stored maintenance data should remain accessible where the deployment and browser caching strategy support it.
+- - No cloud data dependency should prevent access to stored maintenance records.
+
+## Expected outcome
+
+- The application provides a reliable local maintenance workflow for one or more 3D printers, with the FlashForge Creator 5 as the primary supported printer in Version 1.
+- Users can create independently tracked printers, update lifetime printer hours, determine what maintenance is due, complete reusable maintenance checklists, record permanent service history, and automatically begin new maintenance cycles.
+- All printer and maintenance records remain locally controlled by the user.
+- Maintenance completion must preserve historical records while resetting only the state required for the next maintenance cycle.
+- Users can export a complete backup and restore from a valid backup if browser-local data is lost.
+- Optional automatic local backup is used only where browser capabilities and user authorization permit it. Failure of automatic backup must never prevent normal local use of the application.
+- Errors, invalid data, unsupported backups, permission loss, browser limitations, or failed migrations must not silently destroy existing maintenance history.
+- No cloud account, remote database, external authentication system, or Rose & Paw access to individual maintenance records is required for Version 1.
+
+## Acceptance notes
+
+- Multi-printer management
+- Given two or more printers exist, when the user switches printers, only data associated with the selected printer is displayed.
+- Editing one printer must not change another printer's maintenance state or history.
+- Printer hours
+- Given a printer has 500 lifetime hours, entering a lower value must trigger a warning before it can be accepted.
+- Updating one printer's hours must not affect any other printer.
+- Maintenance status
+- Given a maintenance task reaches its configured interval, it must display DUE.
+- Approaching maintenance must display SOON according to an approved threshold.
+- Status must include readable text and must not rely only on colour.
+- Maintenance completion
+- When a recurring maintenance service is completed, the completion date and printer hours are recorded.
+- The next due point is recalculated automatically.
+- Checklist
+- Completing checklist items changes their current-cycle status.
+- Starting a new maintenance cycle resets applicable checklist items without deleting previous service history.
+- Service history
+- Completed maintenance remains visible after future maintenance cycles.
+- History is scoped to the correct printer.
+- Local persistence
+- Closing and reopening the browser must preserve locally stored data unless the user or browser explicitly clears it.
+- Backup export
+- Export must contain enough data to reconstruct all configured printers and maintenance history.
+- Import
+- Invalid backup files must be rejected without damaging existing data.
+- A valid backup must restore the expected printer profiles and maintenance records.
+- Automatic backup
+- Automatic local-file backup must require explicit browser permission.
+- If permission is unavailable or revoked, the application continues functioning and manual export remains available.
+- Privacy
+- Normal application operation must not transmit user maintenance data to Rose & Paw or a cloud database.
+- Responsive layout
+- Core workflows must remain usable on supported desktop, tablet, and mobile screen sizes
