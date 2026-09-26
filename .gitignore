@@ -1,0 +1,73 @@
+# Dependencies
+node_modules/
+
+# Production builds
+dist/
+build/
+out/
+
+# Vite
+.vite/
+.vite-cache/
+
+# Test output
+coverage/
+.nyc_output/
+playwright-report/
+test-results/
+blob-report/
+
+# Playwright cache
+playwright/.cache/
+
+# TypeScript
+*.tsbuildinfo
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Local configuration
+*.local
+
+# Cache and temporary files
+.cache/
+.tmp/
+.temp/
+tmp/
+temp/
+.eslintcache
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Operating system files
+.DS_Store
+.DS_Store?
+Thumbs.db
+Desktop.ini
+ehthumbs.db
+
+# Windows temporary files
+$RECYCLE.BIN/
+*.stackdump
+
+# npm package output
+*.tgz
+
+# Miscellaneous temporary output
+*.bak
+*.tmp
+*.temp

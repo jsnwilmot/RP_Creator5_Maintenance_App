@@ -1,0 +1,178 @@
+{
+  "packageSchemaVersion": 3,
+  "projectName": "Rose & Paw Creator 5 Maintenance App",
+  "clientName": "Jason Wilmot",
+  "appType": "Web application",
+  "appSubtype": "Local-first single-user maintenance tracking SPA",
+  "projectStatus": "Architect Reviewed Baseline",
+  "reviewStatus": "Architect Corrected",
+  "generatedDocumentCount": 20,
+  "expectedDocumentCount": 20,
+  "missingInformationMarkerCount": 0,
+  "readiness": "Ready for phased implementation planning",
+  "blockingDocumentationGaps": 0,
+  "architectCorrectionsApplied": true,
+  "notes": [
+    "This manifest represents a manually corrected Architect baseline based on a Project Builder export.",
+    "Power Platform-specific generated content was removed as not applicable.",
+    "A supplemental Creator 5 maintenance-template document was added.",
+    "Final production hostname remains a non-blocking release-time decision."
+  ],
+  "rootFolder": "rose-paw-creator-5-maintenance-app",
+  "folderStructure": [
+    {
+      "folder": "00_Project_Overview",
+      "expectedFileCount": 5
+    },
+    {
+      "folder": "01_Requirements",
+      "expectedFileCount": 3
+    },
+    {
+      "folder": "02_Architecture",
+      "expectedFileCount": 2
+    },
+    {
+      "folder": "03_Data_Model",
+      "expectedFileCount": 1
+    },
+    {
+      "folder": "04_UI_UX",
+      "expectedFileCount": 2
+    },
+    {
+      "folder": "05_Workflows",
+      "expectedFileCount": 1
+    },
+    {
+      "folder": "06_Security",
+      "expectedFileCount": 1
+    },
+    {
+      "folder": "07_Development",
+      "expectedFileCount": 1
+    },
+    {
+      "folder": "08_Testing",
+      "expectedFileCount": 1
+    },
+    {
+      "folder": "09_Deployment",
+      "expectedFileCount": 1
+    },
+    {
+      "folder": "10_Documentation",
+      "expectedFileCount": 1
+    },
+    {
+      "folder": "11_Codex_Prompts",
+      "expectedFileCount": 1
+    }
+  ],
+  "files": [
+    {
+      "fileName": "CHANGE_LOG.md",
+      "folder": "00_Project_Overview",
+      "path": "00_Project_Overview/CHANGE_LOG.md"
+    },
+    {
+      "fileName": "HANDOFF_CHECKLIST.md",
+      "folder": "00_Project_Overview",
+      "path": "00_Project_Overview/HANDOFF_CHECKLIST.md"
+    },
+    {
+      "fileName": "NEXT_STEPS.md",
+      "folder": "00_Project_Overview",
+      "path": "00_Project_Overview/NEXT_STEPS.md"
+    },
+    {
+      "fileName": "PROJECT_SCOPE.md",
+      "folder": "00_Project_Overview",
+      "path": "00_Project_Overview/PROJECT_SCOPE.md"
+    },
+    {
+      "fileName": "README.md",
+      "folder": "00_Project_Overview",
+      "path": "00_Project_Overview/README.md"
+    },
+    {
+      "fileName": "ACCEPTANCE_CRITERIA.md",
+      "folder": "01_Requirements",
+      "path": "01_Requirements/ACCEPTANCE_CRITERIA.md"
+    },
+    {
+      "fileName": "CLIENT_QUESTIONS.md",
+      "folder": "01_Requirements",
+      "path": "01_Requirements/CLIENT_QUESTIONS.md"
+    },
+    {
+      "fileName": "CLIENT_REQUIREMENTS.md",
+      "folder": "01_Requirements",
+      "path": "01_Requirements/CLIENT_REQUIREMENTS.md"
+    },
+    {
+      "fileName": "APP_BLUEPRINT.md",
+      "folder": "02_Architecture",
+      "path": "02_Architecture/APP_BLUEPRINT.md"
+    },
+    {
+      "fileName": "ARCHITECT_INSTRUCTIONS.md",
+      "folder": "02_Architecture",
+      "path": "02_Architecture/ARCHITECT_INSTRUCTIONS.md"
+    },
+    {
+      "fileName": "DATA_MODEL.md",
+      "folder": "03_Data_Model",
+      "path": "03_Data_Model/DATA_MODEL.md"
+    },
+    {
+      "fileName": "BRAND_GUIDE.md",
+      "folder": "04_UI_UX",
+      "path": "04_UI_UX/BRAND_GUIDE.md"
+    },
+    {
+      "fileName": "SCREEN_MAP.md",
+      "folder": "04_UI_UX",
+      "path": "04_UI_UX/SCREEN_MAP.md"
+    },
+    {
+      "fileName": "WORKFLOW_MAP.md",
+      "folder": "05_Workflows",
+      "path": "05_Workflows/WORKFLOW_MAP.md"
+    },
+    {
+      "fileName": "SECURITY_MODEL.md",
+      "folder": "06_Security",
+      "path": "06_Security/SECURITY_MODEL.md"
+    },
+    {
+      "fileName": "CODEX_INSTRUCTIONS.md",
+      "folder": "07_Development",
+      "path": "07_Development/CODEX_INSTRUCTIONS.md"
+    },
+    {
+      "fileName": "TEST_PLAN.md",
+      "folder": "08_Testing",
+      "path": "08_Testing/TEST_PLAN.md"
+    },
+    {
+      "fileName": "DEPLOYMENT_NOTES.md",
+      "folder": "09_Deployment",
+      "path": "09_Deployment/DEPLOYMENT_NOTES.md"
+    },
+    {
+      "fileName": "CREATOR5_MAINTENANCE_TEMPLATE.md",
+      "folder": "10_Documentation",
+      "path": "10_Documentation/CREATOR5_MAINTENANCE_TEMPLATE.md"
+    },
+    {
+      "fileName": "PHASED_CODEX_PROMPTS.md",
+      "folder": "11_Codex_Prompts",
+      "path": "11_Codex_Prompts/PHASED_CODEX_PROMPTS.md"
+    }
+  ],
+  "diagnosticFiles": [
+    "00_Project_Overview/EXPORT_MANIFEST.md",
+    "project-manifest.json"
+  ]
+}
