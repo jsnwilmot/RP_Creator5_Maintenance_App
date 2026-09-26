@@ -1,33 +1,21 @@
 # Web App Roadmap
 
-## Phase 1: Foundation
-- Select the lightweight web stack.
-- Create the application shell and Rose & Paw branding.
-- Define the maintenance data model.
-- Add local browser persistence.
+The authoritative implementation roadmap for the Rose & Paw Creator 5 Maintenance App is maintained at:
 
-## Phase 2: Core maintenance workflow
-- Dashboard
-- Printer lifetime-hour tracking
-- Maintenance Center
-- Status calculation
-- Service checklist
-- Service history
+`docs/11_Codex_Prompts/PHASED_CODEX_PROMPTS.md`
 
-## Phase 3: Automation
-- Automatic checklist-cycle resets
-- Due and soon calculations
-- Event-driven maintenance items
-- Validation for dates and printer hours
+Do not use this file as an independent phase plan.
 
-## Phase 4: Data portability
-- Export a local backup
-- Restore from a backup
-- Protect against invalid or incompatible backup files
+## Current implementation sequence
 
-## Phase 5: Quality and release
-- Responsive desktop and mobile layouts
-- Accessibility review
-- Browser compatibility testing
-- User documentation
-- Stable release to `main`
+1. Web foundation and quality gates.
+2. Domain model and IndexedDB persistence.
+3. Creator 5 template and maintenance engine.
+4. Printer management and dashboard.
+5. Maintenance Center, checklist, completion, and service history.
+6. Backup, restore, and automatic local-file backup.
+7. Settings, Help, About, accessibility, and security hardening.
+8. Optional offline/static-asset resilience, only if explicitly approved.
+9. Release hardening and deployment preparation.
+
+Each phase must be explicitly authorized by the Architect/user before implementation. The requirements, acceptance criteria, tests, and scope for each phase are defined by the repository-root project documentation under `docs/`.
